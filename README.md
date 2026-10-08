@@ -1,93 +1,5 @@
 # Nexus-VPN
-В качестве ядра выбран современный универсальный движок sing-box v1.14, поддерживающий протоколы VLESS (XTLS Reality / Vision / WebSocket / gRPC), Shadowsocks (2022 / AEAD), Trojan и VMess.
-  ──────
-  ### 📂 Структура проекта
-
-    /mnt/data/project/
-    ├── README.md               # Общий обзор и руководство
-    │
-    ├── linux/                  # Клиент и скрипты для Linux
-    │   ├── bin/sing-box        # Исполняемый файл (x86_64, готов к запуску)
-    │   ├── client.py           # CLI утилита (парсер vless://, ss://, trojan://, vmess://)
-    │   ├── start.sh            # Интерактивный запуск (TUN / Proxy)
-    │   ├── stop.sh             # Быстрая остановка
-    │   ├── status.sh           # Проверка статуса процесса и соединения
-    │   ├── config.json         # Файл конфигурации
-    │   └── README.md           # Документация для Linux (CLI + GUI)
-    │
-    └── windows/                # Клиент и скрипты для Windows
-        ├── bin/sing-box.exe    # Портативный исполняемый файл
-        ├── bin/wintun.dll      # Драйвер высокоскоростного адаптера TUN
-        ├── start.bat           # Меню управления в 1 клик
-        ├── start-tun.bat       # Запуск полного VPN (TUN, авто-запрос Администратора)
-        ├── start-proxy.bat     # Запуск с автонастройкой системного прокси Windows
-        ├── stop.bat            # Остановка и сброс настроек
-        ├── status.bat          # Проверка статуса
-        ├── client.py           # CLI утилита (импорт ссылок и генерация конфигов)
-        ├── config.json         # Файл конфигурации
-        └── README.md           # Документация для Windows (CLI + GUI)
-  ──────
-  ### 🚀 Как пользоваться
-
-  #### Если у вас ссылка (vless://..., ss://..., trojan://..., vmess://...):
-
-  1. В Linux:
-    cd linux
-    python3 client.py import "vless://ВАША_ССЫЛКА..."
-    sudo ./start.sh tun    # Полный системный VPN
-    # или ./start.sh proxy # Локальный прокси 127.0.0.1:2080 без root
-
-  2. В Windows:
-    cd windows
-    python client.py import "vless://ВАША_ССЫЛКА..."
-    start-tun.bat          # Запуск полного VPN в 1 клик
-
-  ──────
-  ### 🖥 Рекомендуемые графические клиенты (GUI)
-
-  Если вы или ваши пользователи предпочитаете удобные приложения с интерфейсом в трее:
-
-   Приложение                          │ Платформы                           │ Особенности
-  ─────────────────────────────────────┼─────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-   Hiddify[1] (Рекомендуется №1)       │ Windows, Linux, Android, iOS, macOS │ Самый современный GUI, ядро sing-box, автопроверка пинга, импорт по ссылке в 1 клик. В Windows ставится через winget install Hiddify.Hiddify.
-   v2rayN[2]                           │ Windows                             │ Мощный классический клиент с поддержкой Xray и sing-box.
-   NekoRay[3]                          │ Windows, Linux                      │ Легковесный клиент на Qt.
-   v2rayA[4]                           │ Linux                               │ Веб-интерфейс, удобно для серверов или автозапуска через systemd.
-
-  [1]: Hiddify https://github.com/hiddifynet/hiddify-app
-  [2]: v2rayN https://github.com/2dust/v2rayN
-  [3]: NekoRay https://github.com/MatsuriDayo/nekoray
-  [4]: v2rayA https://github.com/v2rayA/v2rayA
-
-  Подробные инструкции по каждому варианту описаны в:
-
-  • README.md
-  • README.md
-
-────────────────────────────────────────────────────────────
-> напиши текст для репозитория гитхаба для линукса и для виндовс
-
-○ Thought for 28.2s (Initial task: Generate repository text for GitHub, targeting both Linux and Windows systems. The project is a VPN/proxy client utilizing sing-box, supporting VLESS Reality, Shadowsocks, Trojan, and...)
-● Edited 2 files (README.md, .gitignore) (ctrl+o to expand)
-
-▸ Thought for 26s, 189 tokens
-  Determining the optimal approach to provide the GitHub repository information requires identifying the core function and intended audience. The request specifies Linux and Windows, implying a cross-platform project. Ga...
-  Ниже подготовлен готовый текст и оформление для репозитория на GitHub, а также метаданные для раздела About.
-
-  Файл README.md в корне проекта уже обновлен этим содержимым, а также добавлен файл .gitignore.
-  ──────
-  ### 📌 Настройки репозитория GitHub (раздел About)
-
-  • Repository name: universal-vpn-client (или vpn-client-box)
-  • Description:
-  │ Готовый портативный VPN-клиент для Linux и Windows на базе sing-box с поддержкой VLESS Reality, Shadowsocks, Trojan, VMess и режимом TUN.
-
-  • Topics (теги):
-  vpn, vless, vless-reality, sing-box, shadowsocks, trojan, vmess, anti-censorship, windows, linux, tun-mode, proxy
-  ──────
-  ### 📄 Текст для README.md
-
-    # 🌐 Universal VPN Client (Linux & Windows)
+# 🌐 Universal VPN Client (Linux & Windows)
 
     <p align="center">
       <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-blue?style=for-the-badge&logo=linux&logoColor=white" alt="Platforms" />
@@ -215,4 +127,5 @@
   ──────
   ## 📄 Лицензия
 
-  MIT License. Исходный код ядра sing-box распространяется под лицензией GPL-3.0
+  MIT License. Исходный код ядра sing-box распространяется под лицензией GPL-3.0.
+
